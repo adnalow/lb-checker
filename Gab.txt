@@ -1,1 +1,3 @@
-House
+Mug:450
+bricks:150
+ulki:678
