@@ -1,4 +1,6 @@
+Mug:450
+bricks:150
+ulki:678
 House:450
 Jacket:450
 Water:600
-kupor:567

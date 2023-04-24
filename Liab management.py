@@ -22,8 +22,9 @@ def liab_admin():
         print("Select an option:")
         print("1. Add liability")
         print("2. Remove liability")
-        print("3. Assign liability to user")
-        print("4. Exit")
+        print("3. Assign liability to a specific user")
+        print("4. Remove liability to a specific user")
+        print("5. Exit")
         option = input("What do you want to do? ")
 
         if option == '1':
@@ -67,6 +68,50 @@ def liab_admin():
                     
             else:
                 print("Invalid input.")
+
+
+            
+        elif option == '4':
+            print("Which user do you want to remove a liability from?")
+            option_1 = input("Insert their username: ")
+            if option_1 == 'gab':
+                with open('gab.txt', 'r') as file1:
+                    liab1 = file1.read()
+
+                with open('liabilities.txt', 'r') as file2:
+                    liab2 = file2.read()
+
+                liab_all = liab1 + liab2
+
+                liab_list = liab_all.split('\n')  # convert to list of liabilities
+
+                print("The following liabilities are currently listed:")
+                for i, liab in enumerate(liab_list):
+                    print(f"{i+1}. {liab}")
+
+                item_number = int(input("\nWhich liability do you want to remove? Enter the corresponding number: "))
+
+                try:
+                    item_to_remove = liab_list[item_number-1]  # get the specified item
+                except IndexError:
+                    print("Invalid input. Please enter a valid number.")
+                    return  # exit the function if number is invalid
+
+                liab_list.remove(item_to_remove)  # remove the specified item
+
+                liab_all = '\n'.join(liab_list)  # convert back to string
+
+                with open('gab.txt', 'w') as file1:
+                    file1.write(liab_all)
+
+                with open('liabilities.txt', 'w') as file2:
+                    file2.write(liab_all)
+
+                print(f"{item_to_remove} removed successfully.")
+
+                            
+
+                """
         
         elif option == '4':
             def gab_liab():
@@ -78,7 +123,9 @@ def liab_admin():
 
                     liab_all = liab1 + liab2
                     print(liab_all)
-            gab_liab()
+            gab_liab()\
+            
+            """
   
         elif option == '5':
             print("Exiting liability admin...")
