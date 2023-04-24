@@ -70,7 +70,6 @@ def liab_admin():
                 print("Invalid input.")
 
 
-            
         elif option == '4':
             print("Which user do you want to remove a liability from?")
             option_1 = input("Insert their username: ")
@@ -87,7 +86,7 @@ def liab_admin():
 
                 print("The following liabilities are currently listed:")
                 for i, liab in enumerate(liab_list):
-                    print(f"{i+1}. {liab}")
+                    print(f"[{i+1}] {liab}")
 
                 item_number = int(input("\nWhich liability do you want to remove? Enter the corresponding number: "))
 
@@ -109,24 +108,10 @@ def liab_admin():
 
                 print(f"{item_to_remove} removed successfully.")
 
-                            
+            else:
+                print("Invalid input.")
 
-                """
         
-        elif option == '4':
-            def gab_liab():
-                with open('gab.txt', 'r') as file1:
-                    liab1 = file1.read()
-
-                with open('liabilities.txt', 'r') as file2:
-                    liab2 = file2.read()
-
-                    liab_all = liab1 + liab2
-                    print(liab_all)
-            gab_liab()\
-            
-            """
-  
         elif option == '5':
             print("Exiting liability admin...")
             break
