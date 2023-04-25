@@ -129,7 +129,13 @@ def liab_admin():
     liabilities = {}
     with open('liabilities.txt', 'r') as f:
         for line in f:
-            name, price = line.strip().split(':', 1)
+            line = line.strip()
+            if not line:
+                continue
+            parts = line.split(':')
+            if len(parts) != 2:
+                continue
+            name, price = parts
             if not price.isdigit():
                 continue
             liabilities[name] = int(price)
@@ -214,7 +220,7 @@ def liab_admin():
 
         elif option == '4':
             username_to_file = {
-                'gelo': 'gelo.txt',
+                'elo': 'gelo.txt',
                 'elwin': 'elwin.txt',
                 'mochu': 'mochu.txt',
                 'jawo': 'jawo.txt',
@@ -276,4 +282,14 @@ def liab_admin():
 
  
 
+ 
+with open('gelo.txt', 'r') as file1:
+                    liab1 = file1.read()
+
+                with open('liabilities.txt', 'r') as file2:
+                    liab2 = file2.read()
+
+                    liab_all = liab1 + liab2
+                    print(liab_all)
+            
  
