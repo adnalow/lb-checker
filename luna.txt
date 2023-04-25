@@ -1,2 +1,0 @@
-house:1450rice:1456
-kettle:4567
