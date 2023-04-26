@@ -286,10 +286,10 @@ def liab_admin():
 with open('gelo.txt', 'r') as file1:
                     liab1 = file1.read()
 
-                with open('liabilities.txt', 'r') as file2:
-                    liab2 = file2.read()
+                    with open('liabilities.txt', 'r') as file2:
+                        liab2 = file2.read()
 
-                    liab_all = liab1 + liab2
-                    print(liab_all)
-            
+                        liab_all = liab1 + liab2
+                        print(liab_all)
+                
  
